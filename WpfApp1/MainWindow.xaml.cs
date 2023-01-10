@@ -17,7 +17,16 @@ namespace WpfApp1
     public partial class MainWindow : Window
 
     {
+         public static bool AcrptarIsEnables(string nombre, string apellido1, string apellido2, bool? cliente, bool? distribuidor, string telefono1, string correo, string direccion, string cp, string poblacion, int provincia1, int provincia2)
+         {
+            if ((nombre!= "") && (apellido1 != "") && (apellido2 != "") && (telefono1!= "") && ((cliente==true) || (distribuidor== true)) && (correo!= "") && (direccion!= "") && (cp != "") && (poblacion!= "") && ((provincia1!= -1) || (provincia2 != -1)))
+            {
+                return true;
+            }
+            else
+                return false;
 
+         }
 
         public string tel1;
         public int telInt1;
@@ -100,14 +109,10 @@ namespace WpfApp1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            
+             btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+                                                     
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -122,14 +127,8 @@ namespace WpfApp1
 
         private void txtPrimerApellido_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -143,14 +142,8 @@ namespace WpfApp1
 
         private void txtSegundoApellido_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -164,14 +157,8 @@ namespace WpfApp1
 
         private void rbCliente_Checked(object sender, RoutedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbCliente.IsChecked == true)
             {
                 cbProvincia.Visibility = Visibility.Visible;
@@ -194,14 +181,8 @@ namespace WpfApp1
 
         private void rbDistribuidor_Checked(object sender, RoutedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
 
             if (rbDistribuidor.IsChecked == true)
             {
@@ -225,14 +206,8 @@ namespace WpfApp1
 
         private void txtTelefono1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -252,14 +227,8 @@ namespace WpfApp1
 
         private void txtCorreo_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -273,14 +242,8 @@ namespace WpfApp1
 
         private void txtDirecion_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -294,14 +257,8 @@ namespace WpfApp1
 
         private void txtCP_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -315,14 +272,8 @@ namespace WpfApp1
 
         private void txtPoblacion_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -336,14 +287,8 @@ namespace WpfApp1
 
         private void cbProvincia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked == true)
             {
                 cbProvincia.SelectedIndex = -1;
@@ -360,14 +305,8 @@ namespace WpfApp1
 
         private void cbProvincia2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((txtPrimerApellido.Text != "") && (txtSegundoApellido.Text != "") && (txtNombre.Text != "") && (txtTelefono1.Text != "") && ((rbCliente.IsChecked == true) || (rbDistribuidor.IsChecked == true)) && (txtCorreo.Text != "") && (txtDirecion.Text != "") && (txtCP.Text != "") && (txtPoblacion.Text != "") && ((cbProvincia.SelectedIndex != -1) || (cbProvincia2.SelectedIndex != -1)))
-            {
-                btAceptar.IsEnabled = true;
-            }
-            else
-            {
-                btAceptar.IsEnabled = false;
-            }
+            btAceptar.IsEnabled = AcrptarIsEnables(txtNombre.Text, txtSegundoApellido.Text, txtSegundoApellido.Text, rbCliente.IsChecked, rbDistribuidor.IsChecked, txtTelefono1.Text, txtCorreo.Text, txtDirecion.Text, txtCP.Text, txtPoblacion.Text, cbProvincia.SelectedIndex, cbProvincia2.SelectedIndex);
+
             if (rbDistribuidor.IsChecked==true)
             {
                 cbProvincia.SelectedIndex = -1;
